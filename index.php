@@ -1,7 +1,6 @@
 
 <?php  include 'includes/header.php' ?>
-
-            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+  <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
                 <div class="container">
                     <div class="row">
 
