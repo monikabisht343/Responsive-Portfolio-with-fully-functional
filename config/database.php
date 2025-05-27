@@ -1,22 +1,34 @@
 <?php
 
-$host = 'localhost';
-$user = 'monika';
-$pass = 'Scanner@786';
-$db = 'portfolio_db';
+$serverName = "HP\\SQLEXPRESS"; // Note: double backslash in string
+$connectionOptions = [
+    "Database" => "portfolio",
+    "Uid" => "", // Replace with actual SQL username
+    "PWD" => ""  // Replace with actual SQL password
+];
 
-try {
-    // Create a new PDO instance
-    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
+// Connect using SQLSRV
+$conn = sqlsrv_connect($serverName, $connectionOptions);
 
-    // Set error mode to exception
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    // If connection is successful, show a success message
-    // echo "Database connected successfully!";
-} catch (PDOException $e) {
-    // Handle connection error
-    die("Error connecting to the database: " . $e->getMessage());
+if ($conn === false) {
+    die(print_r(sqlsrv_errors(), true));
 }
+// Your database connection is now established.
+$sql = "SELECT * FROM subjects";    
+$stmt = sqlsrv_query($conn, $sql);
+
+if ($stmt === false){
+    die(print_r(sqlsrv_errors(), true));
+}// Example query
+
+$subjects = [];
+
+//fetching data into an array
+while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+    $subjects[] = $row;
+    //print_r($row); die;
+}
+
+sqlsrv_close($conn);
 
 ?>

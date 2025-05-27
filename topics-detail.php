@@ -1,4 +1,11 @@
-<?php  include 'includes/header.php' ?>
+<?php  
+
+include 'includes/header.php';
+require 'config/database.php';
+
+
+
+?>
 
 
             <section class="topics-detail-section section-padding" id="topics-detail">

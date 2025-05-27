@@ -1,5 +1,9 @@
+<?php  
+include 'includes/header.php';
+require 'config/database.php';
 
-<?php  include 'includes/header.php' ?>
+?>
+
   <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
                 <div class="container">
                     <div class="row">

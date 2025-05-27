@@ -1,5 +1,8 @@
 
-<?php  include 'includes/header.php' ?>
+<?php 
+ include 'includes/header.php' ;
+ require 'config/database.php';
+?>
 
             <section class="section-padding">
                 <div class="container">
@@ -16,55 +19,22 @@
 
                                     <div class="custom-block-topics-listing-info d-flex">
                                         <div>
-                                            <h5 class="mb-2">Web Design</h5>
+                                            <?php foreach ($subjects as $subject): ?>
+                                                
 
-                                            <p class="mb-0">Topic Listing includes home, listing, detail and contact pages. Feel free to modify this template for your custom websites.</p>
+                                            <h5 class="mb-2"><?= htmlspecialchars($subject['subject_title']) ?></h5>
 
-                                            <a href="topics-detail.html" class="btn custom-btn mt-3 mt-lg-4">Learn More</a>
-                                        </div>
-
-                                        <span class="badge bg-design rounded-pill ms-auto">14</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-                                <div class="d-flex">
-                                    <img src="images/topics/undraw_online_ad_re_ol62.png" class="custom-block-image img-fluid" alt="">
-
-                                    <div class="custom-block-topics-listing-info d-flex">
-                                        <div>
-                                            <h5 class="mb-2">Advertising</h5>
-
-                                            <p class="mb-0">Visit TemplateMo website to download free CSS templates. Lorem ipsum dolor, sit amet consectetur adipisicing elit animi necessitatibus</p>
+                                            <p class="mb-0"><?= htmlspecialchars($subject['description']) ?></p>
 
                                             <a href="topics-detail.html" class="btn custom-btn mt-3 mt-lg-4">Learn More</a>
                                         </div>
 
-                                        <span class="badge bg-advertising rounded-pill ms-auto">30</span>
+                                        <span class="badge bg-design rounded-pill ms-auto"><?= htmlspecialchars($subject['number']) ?></span>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="custom-block custom-block-topics-listing bg-white shadow-lg mb-5">
-                                <div class="d-flex">
-                                    <img src="images/topics/undraw_Podcast_audience_re_4i5q.png" class="custom-block-image img-fluid" alt="">
-
-                                    <div class="custom-block-topics-listing-info d-flex">
-                                        <div>
-                                            <h5 class="mb-2">Podcast</h5>
-
-                                            <p class="mb-0">Lorem ipsum dolor, sit amet consectetur adipisicing elit animi necessitatibus</p>
-
-                                            <a href="topics-detail.html" class="btn custom-btn mt-3 mt-lg-4">Learn More</a>
-                                        </div>
-
-                                        <span class="badge bg-music rounded-pill ms-auto">20</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+<?php endforeach; ?>
+                           
                         <div class="col-lg-12 col-12">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination justify-content-center mb-0">
